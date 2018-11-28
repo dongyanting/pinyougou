@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="pyg_commons" />
+        <module name="pyg_content_interface" />
+        <module name="pyg_content_service" />
+        <module name="pyg_dao" />
+        <module name="pyg_manager_web" />
+        <module name="pyg_pojo" />
+        <module name="pyg_portal_web" />
+        <module name="pyg_sellergoods_interface" />
+        <module name="pyg_sellergoods_service" />
+        <module name="pyg_shop_web" />
+        <module name="springDataRedis_demo" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="generatorProject" target="1.5" />
+    </bytecodeTargetLevel>
+  </component>
+</project>
