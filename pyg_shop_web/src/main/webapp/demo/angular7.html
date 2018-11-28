@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>事件指令</title>
+<script type="text/javascript" src="../plugins/angularjs/angular.min.js"></script>
+<script type="text/javascript">
+    var myapp = angular.module('myApp',[]); //定义一个模块
+    myapp.controller("myController",function($scope){  //$scope 是 js和html交互的入口
+    	$scope.add=function(){
+//     		parseInt   JS的方法 转int的方法
+    		$scope.c = parseInt($scope.a) + parseInt($scope.b);
+        }
+    })
+</script>
+</head>
+<body ng-app="myApp" ng-controller="myController" ng-init="initUser();">  
+    
+    <input ng-model="a">+<input  ng-model="b"><button ng-click="add()">等于</button><input  ng-model="c">
+
+</body>
+</html>

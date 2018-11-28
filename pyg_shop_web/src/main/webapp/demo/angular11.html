@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>循环对象</title>
+<script type="text/javascript" src="../plugins/angularjs/angular.min.js"></script>
+<script type="text/javascript">
+
+//    alert({"username":"qwqwqw"} + "-->"+JSON.stringify({"username":"qwqwqw"}));
+
+    var myapp = angular.module('myApp',[]); //定义一个模块
+    myapp.controller("myController",function($scope,$http){  //$scope 是 js和html交互的入口
+														//     	$http内置服务 用于和后台交互
+       
+		$scope.user1={username:'aaaaa',age:20};												
+		 												
+		 $scope.copyUser=function(){
+// 			 $scope.user1---stringify方法---》字符串---parse方法-----》对象 赋值到user2
+			 
+			  $scope.user2  = JSON.parse(JSON.stringify($scope.user1));
+			 
+		 }										
+	   
+														
+    })
+</script>
+</head>
+<body ng-app="myApp" ng-controller="myController"   >  
+    user1的名称是：{{user1.username}}<br/>
+    user2的名称是：<input ng-model="user2.username">
+    <button ng-click="copyUser()">赋值</button>
+    
+      
+</body>
+</html>

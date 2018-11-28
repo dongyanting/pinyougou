@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>循环对象</title>
+<script type="text/javascript" src="../plugins/angularjs/angular.min.js"></script>
+<script type="text/javascript">
+    var myapp = angular.module('myApp',[]); //定义一个模块
+    myapp.controller("myController",function($scope,$http){  //$scope 是 js和html交互的入口
+														//     	$http内置服务 用于和后台交互
+      
+		$scope.findAll=function(){
+			$http.get("../brand/findAll").success(function(response){
+	    	     $scope.list = response;
+		    })
+   		}											
+	   
+														
+    })
+</script>
+</head>
+<body ng-app="myApp" ng-controller="myController" ng-init="findAll()" >  
+    
+     <div ng-repeat="pojo in list">
+       {{pojo.name}}
+     </div>
+     
+</body>
+</html>

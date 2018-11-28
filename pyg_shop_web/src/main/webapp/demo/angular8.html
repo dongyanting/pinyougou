@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>循环数组</title>
+<script type="text/javascript" src="../plugins/angularjs/angular.min.js"></script>
+<script type="text/javascript">
+    var myapp = angular.module('myApp',[]); //定义一个模块
+    myapp.controller("myController",function($scope){  //$scope 是 js和html交互的入口
+       $scope.array=['AAA','BBB','CCC'];
+    })
+</script>
+</head>
+<body ng-app="myApp" ng-controller="myController" >  
+    
+     <div ng-repeat="pojo in array">
+       {{pojo}}
+     </div>
+     
+</body>
+</html>
