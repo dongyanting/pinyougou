@@ -16,8 +16,8 @@
    <link rel="stylesheet" type="text/css" href="css/widget-cartPanelView.css" />
 	<script src="./plugins/angularjs/angular.min.js"></script>
 	<script src="./js/base.js"></script>
-	<script src="./js/service/indexService.js"></script>
-	<script src="./js/controller/indexController.js"></script>
+	<script src="./js/service/searchService.js"></script>
+	<script src="./js/controller/searchController.js"></script>
 </head>
 <body  ng-app="pinyougou" ng-controller="indexController" ng-init="findByCategotyId(1)" >
 
@@ -527,8 +527,7 @@
 					<!--banner轮播-->
 					<div id="myCarousel" data-ride="carousel" data-interval="4000" class="sui-carousel slide">
 					  <ol class="carousel-indicators">
-					    <li ng-repeat="pojo in bannerList" data-target="#myCarousel" data-slide-to="{{$index}}" class="{{$index==0?'active':''}}"></li>
-					    <!--<li data-target="#myCarousel" data-slide-to="1"></li>
+					    <li ng-repeat="pojo in bannerList" data-target="#myCarousel" data-slide-to="{{$index}}" class="{{$index==0?'active':''}}"></data-target="#myCarousel" data-slide-to="1"></li>
 					    <li data-target="#myCarousel" data-slide-to="2"></li>-->
 					  </ol>
 					  <div class="carousel-inner">
