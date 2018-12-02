@@ -16,8 +16,8 @@
    <link rel="stylesheet" type="text/css" href="css/widget-cartPanelView.css" />
 	<script src="./plugins/angularjs/angular.min.js"></script>
 	<script src="./js/base.js"></script>
-	<script src="./js/service/searchService.js"></script>
-	<script src="./js/controller/searchController.js"></script>
+	<script src="./js/service/indexService.js"></script>
+	<script src="./js/controller/indexController.js"></script>
 </head>
 <body  ng-app="pinyougou" ng-controller="indexController" ng-init="findByCategotyId(1)" >
 
@@ -72,8 +72,8 @@
 							<form action="" class="sui-form form-inline">
 								<!--searchAutoComplete-->
 								<div class="input-append">
-									<input type="text" id="autocomplete" type="text" class="input-error input-xxlarge" />
-									<a class="sui-btn btn-xlarge btn-danger" href="search.html">搜索</a>
+									<input type="text" id="autocomplete" type="text" ng-model="keyword" class="input-error input-xxlarge" />
+									<button class="sui-btn btn-xlarge btn-danger" ng-click="search()">搜索</button>
 								</div>
 							</form>
 						</div>
