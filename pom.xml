@@ -24,6 +24,9 @@
       <module>pyg_search_service</module>
       <module>pyg_search_web</module>
       <module>pyg_data_init</module>
+      <module>pyg_itempage_interface</module>
+    <module>pyg_itempage_service</module>
+    <module>pyg_itempage_web</module>
   </modules>
 
   <!-- 集中定义依赖版本号 -->
