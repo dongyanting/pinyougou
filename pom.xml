@@ -27,6 +27,10 @@
       <module>pyg_itempage_interface</module>
     <module>pyg_itempage_service</module>
     <module>pyg_itempage_web</module>
+      <module>pyg_sms</module>
+      <module>pyg_user_interface</module>
+    <module>pyg_user_service</module>
+    <module>pyg_user_web</module>
   </modules>
 
   <!-- 集中定义依赖版本号 -->
