@@ -115,7 +115,7 @@ public class SearchServiceImpl implements SearchService {
 
 
         HighlightPage<TbItem> highlightPage = solrTemplate.queryForHighlightPage(highlightQuery, TbItem.class);
-        System.out.println(JSON.toJSONString(highlightPage, true));
+//        System.out.println(JSON.toJSONString(highlightPage, true));
 
         List<TbItem> content = highlightPage.getContent();// 当前页的数据
         for (TbItem tbItem : content) {

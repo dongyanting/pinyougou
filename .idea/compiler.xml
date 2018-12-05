@@ -7,6 +7,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="freemarker_demo" />
+        <module name="p2p_producer_demo" />
         <module name="pyg_commons" />
         <module name="pyg_content_interface" />
         <module name="pyg_content_service" />
@@ -24,6 +25,8 @@
         <module name="pyg_sellergoods_interface" />
         <module name="pyg_sellergoods_service" />
         <module name="pyg_shop_web" />
+        <module name="spring_jms_consumer" />
+        <module name="spring_jms_producer" />
         <module name="springDataRedis_demo" />
       </profile>
     </annotationProcessing>

@@ -13,7 +13,12 @@
     <!-- 事务管理器  -->  
     <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">  
         <property name="dataSource" ref="dataSource" />  
-    </bean>  
+    </bean>
+
+    <bean id="freemarkerConfig"	class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer">
+        <property name="templateLoaderPath" value="/WEB-INF/ftl/" />
+        <property name="defaultEncoding" value="UTF-8" />
+    </bean>
       
     <!-- 开启事务控制的注解支持 -->  
     <tx:annotation-driven transaction-manager="transactionManager"/>

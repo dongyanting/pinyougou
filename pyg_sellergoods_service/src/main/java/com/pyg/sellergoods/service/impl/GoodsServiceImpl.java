@@ -16,7 +16,14 @@ import com.pyg.pojo.TbGoodsExample.Criteria;
 import com.pyg.sellergoods.service.GoodsService;
 
 import entity.PageResult;
+import org.springframework.jms.core.JmsTemplate;
+import org.springframework.jms.core.MessageCreator;
 import org.springframework.transaction.annotation.Transactional;
+
+import javax.jms.Destination;
+import javax.jms.JMSException;
+import javax.jms.Message;
+import javax.jms.Session;
 
 /**
  * 服务实现层
@@ -204,6 +211,19 @@ public class GoodsServiceImpl implements GoodsService {
 		}
 	}
 
+	/**
+	 * 修改物品上下架  1.上架  2.下架
+	 * @param ids
+	 * @param market
+	 */
+
+	@Autowired
+	private JmsTemplate jmsTemplate;
+	@Autowired
+	private Destination solrItempageUpdate;
+	@Autowired
+	private Destination solrItempageDelete;
+
 	@Override
 	public void updateIsMarketable(Long[] ids, String market) {
 		for (Long id : ids) {
@@ -211,6 +231,26 @@ public class GoodsServiceImpl implements GoodsService {
 			paraMap.put("id",id);
 			paraMap.put("market",market);
 			goodsMapper.updateIsMarketable(paraMap);
+
+
+			if (market.equals("1")) {
+				// 上架
+				jmsTemplate.send(solrItempageUpdate, new MessageCreator() {
+					@Override
+					public Message createMessage(Session session) throws JMSException {
+						return session.createTextMessage(id + "");
+					}
+				});
+			}
+			if (market.equals("2")) {
+				// 上架
+				jmsTemplate.send(solrItempageDelete, new MessageCreator() {
+					@Override
+					public Message createMessage(Session session) throws JMSException {
+						return session.createTextMessage(id + "");
+					}
+				});
+			}
 		}
 	}
 
