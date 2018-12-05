@@ -21,6 +21,7 @@
         <option value="$PROJECT_DIR$/../p2p_producer_demo/pom.xml" />
         <option value="$PROJECT_DIR$/../spring_jms_producer/pom.xml" />
         <option value="$PROJECT_DIR$/../spring_jms_consumer/pom.xml" />
+        <option value="$PROJECT_DIR$/../httpClient_demo/pom.xml" />
       </list>
     </option>
   </component>

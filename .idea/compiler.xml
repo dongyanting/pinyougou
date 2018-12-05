@@ -7,6 +7,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="freemarker_demo" />
+        <module name="httpClient_demo" />
         <module name="p2p_producer_demo" />
         <module name="pyg_commons" />
         <module name="pyg_content_interface" />
