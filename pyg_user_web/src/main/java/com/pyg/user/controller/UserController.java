@@ -22,7 +22,7 @@ public class UserController {
         //
         try {
             userService.sendSms(phone);
-            return new Result(true,"");
+            return new Result(true,"发送成功");
         } catch (Exception e) {
             e.printStackTrace();
             return new Result(false,"发送失败");
