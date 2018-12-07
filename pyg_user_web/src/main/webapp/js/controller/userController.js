@@ -6,7 +6,8 @@ app.controller("userController",function ($scope,userService) {
     $scope.sendSms = function () {
         userService.sendSms($scope.entity.phone).success(function (response) {
             if (response.success) {
-                alert("倒计时效果");
+                 alert("倒计时效果");
+
             } else {
                 alert(response.message);
             }
@@ -16,7 +17,8 @@ app.controller("userController",function ($scope,userService) {
     $scope.register = function () {
         userService.register($scope.entity,$scope.code).success(function (response) {
             if (response.success) {
-                alert("跳转到登陆页面");
+                // alert("跳转到登陆页面");
+                location.href = "home-index.html";
             } else {
                 alert(response.message);
             }

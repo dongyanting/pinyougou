@@ -2,6 +2,9 @@
 <project version="4">
   <component name="ExternalStorageConfigurationManager" enabled="true" />
   <component name="FrameworkDetectionExcludesConfiguration">
+    <file type="web" url="file://$PROJECT_DIR$/../demo1" />
+    <file type="web" url="file://$PROJECT_DIR$/../demo2" />
+    <file type="web" url="file://$PROJECT_DIR$/../demo3" />
     <file type="web" url="file://$PROJECT_DIR$/pyg_content_service" />
     <file type="web" url="file://$PROJECT_DIR$/pyg_itempage_service" />
     <file type="web" url="file://$PROJECT_DIR$/pyg_itempage_web" />
@@ -26,6 +29,9 @@
         <option value="$PROJECT_DIR$/../spring_jms_consumer/pom.xml" />
         <option value="$PROJECT_DIR$/../httpClient_demo/pom.xml" />
         <option value="$PROJECT_DIR$/../alicom-dysms-api/pom.xml" />
+        <option value="$PROJECT_DIR$/../demo1/pom.xml" />
+        <option value="$PROJECT_DIR$/../demo2/pom.xml" />
+        <option value="$PROJECT_DIR$/../demo3/pom.xml" />
       </list>
     </option>
   </component>

@@ -47,22 +47,19 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void sendSms(String phone) throws Exception {
-
-        //
+//        使用httpClient发送短信
         HttpClient httpClient = new HttpClient("http://127.0.0.1:7788/sms/sendSms");
-        httpClient.addParameter("phoneNumber",phone);
-        httpClient.addParameter("signName","品味优雅购物");
+//        (String phoneNumbers,String signName,String templateCode,String templateParam)
+        httpClient.addParameter("phoneNumbers",phone);
+        httpClient.addParameter("signName","品位优雅购物");
         httpClient.addParameter("templateCode","SMS_130926832");
-
         String numeric = RandomStringUtils.randomNumeric(4);
-
         System.out.println(numeric);
-
         httpClient.addParameter("templateParam","{\"code\":\""+numeric+"\"}");
         httpClient.post();
         System.out.println(httpClient.getContent());
-
-        // 把验证码放入Redis中  30s过期
-        redisTemplate.boundValueOps("sms_" + phone).set(numeric,30, TimeUnit.SECONDS);
+//        redisTemplate.boundValueOps("sms_"+phone).set(numeric,5, TimeUnit.MINUTES);
+//        把验证码放入到redis中
+        redisTemplate.boundValueOps("sms_"+phone).set(numeric,30, TimeUnit.SECONDS);
     }
 }

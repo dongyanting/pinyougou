@@ -7,6 +7,9 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="alicom-dysms-api" />
+        <module name="demo1" />
+        <module name="demo2" />
+        <module name="demo3" />
         <module name="freemarker_demo" />
         <module name="httpClient_demo" />
         <module name="p2p_producer_demo" />
