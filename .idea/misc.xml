@@ -5,6 +5,8 @@
     <file type="web" url="file://$PROJECT_DIR$/../demo1" />
     <file type="web" url="file://$PROJECT_DIR$/../demo2" />
     <file type="web" url="file://$PROJECT_DIR$/../demo3" />
+    <file type="web" url="file://$PROJECT_DIR$/pyg_cart_service" />
+    <file type="web" url="file://$PROJECT_DIR$/pyg_cart_web" />
     <file type="web" url="file://$PROJECT_DIR$/pyg_content_service" />
     <file type="web" url="file://$PROJECT_DIR$/pyg_itempage_service" />
     <file type="web" url="file://$PROJECT_DIR$/pyg_itempage_web" />
