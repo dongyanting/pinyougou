@@ -27,6 +27,9 @@
         <module name="pyg_manager_web" />
         <module name="pyg_order_interface" />
         <module name="pyg_order_service" />
+        <module name="pyg_pay_interface" />
+        <module name="pyg_pay_service" />
+        <module name="pyg_pay_web" />
         <module name="pyg_pojo" />
         <module name="pyg_portal_web" />
         <module name="pyg_search_interface" />

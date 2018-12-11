@@ -3,9 +3,11 @@ package com.pyg.order.service.impl;
 import com.alibaba.dubbo.config.annotation.Service;
 import com.pyg.mapper.TbOrderItemMapper;
 import com.pyg.mapper.TbOrderMapper;
+import com.pyg.mapper.TbPayLogMapper;
 import com.pyg.order.service.OrderService;
 import com.pyg.pojo.TbOrder;
 import com.pyg.pojo.TbOrderItem;
+import com.pyg.pojo.TbPayLog;
 import groupEntity.Cart;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
@@ -28,10 +30,17 @@ public class OrderServiceImpl implements OrderService {
     private TbOrderMapper orderMapper;
     @Autowired
     private TbOrderItemMapper orderItemMapper;
+
+    @Autowired
+    private TbPayLogMapper payLogMapper;
     @Override
     public void add(TbOrder order) {  //order
         String userId = order.getUserId();
         List<Cart> cartList = (List<Cart>) redisTemplate.boundHashOps("cartList").get(userId);
+
+        String orderList="";
+        Double totalFee = 0.00;
+
         for (Cart cart : cartList) {
             TbOrder tbOrder = new TbOrder();
 //  `payment_type` varchar(1) COLLATE utf8_bin DEFAULT NULL COMMENT '支付类型，1、在线支付 微信，2、货到付款',
@@ -68,11 +77,29 @@ public class OrderServiceImpl implements OrderService {
                 orderItem.setOrderId(orderId);
                 orderItemMapper.insert(orderItem);
             }
+            totalFee += payment.doubleValue();
             tbOrder.setPayment(payment);
             orderMapper.insert(tbOrder);
+            orderList+=orderId+",";
         }
 //        清空购物车
         redisTemplate.boundHashOps("cartList").delete(userId);
 
+//        插入一个支付日志数据
+        TbPayLog payLog = new TbPayLog();
+        payLog.setCreateTime(new Date());   // 创建时间
+        payLog.setOrderList(orderList.substring(0,orderList.length()-1));    // 订单id
+        payLog.setOutTradeNo(idWorker.nextId()+"");   // 主键
+//        payLog.setPayTime();      // 支付时间   TODO 支付以后
+        payLog.setPayType(order.getPaymentType());      // 支付方式
+        payLog.setTotalFee((long)(totalFee*100));     // 总金额
+        payLog.setTradeState("0");   // 支付状态
+//        payLog.setTransactionId();// 微信交易流水号 ，TODO支付成功后才有值
+        payLog.setUserId(userId);       // 用户id
+
+        payLogMapper.insert(payLog);
+
+        // 为了方便支付获取paylog对象，放入redis
+        redisTemplate.boundHashOps("payLog").put(userId,payLog);
     }
 }
