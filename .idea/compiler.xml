@@ -25,6 +25,8 @@
         <module name="pyg_itempage_service" />
         <module name="pyg_itempage_web" />
         <module name="pyg_manager_web" />
+        <module name="pyg_order_interface" />
+        <module name="pyg_order_service" />
         <module name="pyg_pojo" />
         <module name="pyg_portal_web" />
         <module name="pyg_search_interface" />

@@ -7,6 +7,7 @@ import entity.Result;
 import groupEntity.Cart;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import utils.CookieUtil;
@@ -70,6 +71,8 @@ public class CartController {
 
 //    因为添加的结果有成功或者失败的可能所以用Result来接收,传过来的参数只需要商品的id和数量就就可以
     @RequestMapping("/addGoodsToCartList")
+//    @CrossOrigin(origins = {"http://item.pinyougou.com","http://www.pinyougou.com"}) // 允许http://item.pinyougou.com对此方法进行跨域访问
+    @CrossOrigin(origins = "*") //允许所有网站访问
     public Result addGoodsToCartList(Long itemId,int num) {
 
         try {
