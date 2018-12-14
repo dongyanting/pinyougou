@@ -35,6 +35,10 @@
         <module name="pyg_search_interface" />
         <module name="pyg_search_service" />
         <module name="pyg_search_web" />
+        <module name="pyg_seckill_interface" />
+        <module name="pyg_seckill_service" />
+        <module name="pyg_seckill_task" />
+        <module name="pyg_seckill_web" />
         <module name="pyg_sellergoods_interface" />
         <module name="pyg_sellergoods_service" />
         <module name="pyg_shop_web" />

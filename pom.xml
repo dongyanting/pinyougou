@@ -39,6 +39,10 @@
       <module>pyg_pay_interface</module>
     <module>pyg_pay_service</module>
     <module>pyg_pay_web</module>
+      <module>pyg_seckill_interface</module>
+      <module>pyg_seckill_service</module>
+      <module>pyg_seckill_web</module>
+      <module>pyg_seckill_task</module>
   </modules>
 
   <!-- 集中定义依赖版本号 -->
